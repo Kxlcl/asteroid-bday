@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroid Details</title>
+</head>
+<body>
+    <h1>Asteroid Information for the Date</h1>
+
+    <h2>Closest Asteroid</h2>
+    <ul>
+        <li><strong>Name:</strong> <%= closestAsteroid.name %></li>
+        <li><strong>Approach Date:</strong> <%= closestAsteroid.approach_date %></li>
+        <li><strong>Miss Distance:</strong> <%= closestAsteroid.miss_distance_km %> km</li>
+        <li><strong>Estimated Diameter:</strong> <%= closestAsteroid.estimated_diameter_max %> km</li>
+        <li><strong>Potentially Hazardous:</strong> <%= closestAsteroid.potentially_hazardous %></li>
+    </ul>
+
+    <h2>Largest Asteroid</h2>
+    <ul>
+        <li><strong>Name:</strong> <%= largestAsteroid.name %></li>
+        <li><strong>Approach Date:</strong> <%= largestAsteroid.approach_date %></li>
+        <li><strong>Miss Distance:</strong> <%= largestAsteroid.miss_distance_km %> km</li>
+        <li><strong>Estimated Diameter:</strong> <%= largestAsteroid.estimated_diameter_max %> km</li>
+        <li><strong>Potentially Hazardous:</strong> <%= largestAsteroid.potentially_hazardous %></li>
+    </ul>
+
+</body>
+</html>

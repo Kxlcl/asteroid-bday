@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroids Home</title>
+</head>
+<body>
+    <h1>Welcome to Your Asteroid Dashboard</h1>
+
+    <h2>Find Your Closest Asteroid</h2>
+
+    <!-- Form to input birthday -->
+    <form action="/find-asteroids" method="POST">
+        <input type="hidden" name="userId" value="<%= userId %>"> <!-- Pass the userId -->
+        <label for="birthday">Enter your Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required>
+        <button type="submit">Find Closest Asteroid</button>
+    </form>
+
+</body>
+</html>
