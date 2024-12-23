@@ -3,18 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-image: url("https://science.nasa.gov/wp-content/uploads/2023/09/web-first-images-release.png?w=4096&format=png");
+            background-size: cover;
+            display: flex;
+            height: 100vh;
+        }
+
+        p, h1{
+            text-align: center;
+            font-family: "Tiny5", serif;
+        }
+
+        .login-container{
+            height: 500px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(204, 209, 229, 0.9);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 5px 10px;
+        }
+        
+        .login-wrapper{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #email, #password {
+            width: 250px;
+            height: 30px;
+            border: 2px black solid;
+            border-radius: 15px;
+            padding-left: 10px;
+        }
+
+        .label {
+            font-family: "Tiny5", serif;
+        }
+
+        .button {
+            font-family: "Tiny5", serif;
+            width: 250px;
+            background-color: rgb(49, 49, 62);
+            padding: 10px;
+            margin: 15px 0;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+      </style>
+    <title>login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+    <div class="login-wrapper">
+    <div class="login-container">
+        <h1>Login to SPACE BIRTHDAY</h1>
+        <p>Check out special space events that happened on your birthday! If you do not have an account, it will be automatically created for you.</p>
+        <form action="/login" method="POST">
+            <label class="label" for="email">email</label>
+            <br>
+            <input type="email" id="email" name="email" required><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+            <label class="label" for="password">password</label>
+            <br>
+            <input type="password" id="password" name="password" required><br>
 
-        <button type="submit">Login</button>
-    </form>
+            <button class="button" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

@@ -3,19 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+  
+    <style>
+        body {
+            background-image: url("https://smd-cms.nasa.gov/wp-content/uploads/2023/04/m33.png");
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1A202C;
+        }
+
+        p, h1, h2 {
+            text-align: center;
+            font-family: "Tiny5", serif;
+        }
+
+        .dashboard-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            font-family: "Tiny5", serif;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(204, 209, 229, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 5px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .button {
+            font-family: "Tiny5", serif;
+            width: 250px;
+            background-color: rgb(49, 49, 62);
+            padding: 10px;
+            margin: 15px 0;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #3B3B52;
+        }
+    </style>
     <title>Asteroid Details</title>
 </head>
 <body>
-    <h1>Asteroid Information for the Date</h1>
+    <div class="item">
+        <h1>On Your Birthday...</h1>
+        <h2>The Closest Asteroid Was:</h2>
+        <ul>
+            <li><strong>Name:</strong> <%= closestAsteroid.name %></li>
+            <li><strong>Approached Earth On:</strong> <%= closestAsteroid.approach_date %></li>
+            <li><strong>Missed Earth By:</strong> 
+                <% 
+                    const formattedMissDistance = closestAsteroid.miss_distance_km > 1000000 
+                        ? `${(closestAsteroid.miss_distance_km / 1000000).toFixed(2)} million km` 
+                        : `${closestAsteroid.miss_distance_km.toLocaleString(undefined, {maximumFractionDigits: 0})} km`;
+                %>
+                <%= formattedMissDistance %>
+            </li>
+            <li><strong>Estimated Diameter:</strong> <%= closestAsteroid.estimated_diameter_max.toFixed(2) %> km</li>
+            <li><strong>Potentially Hazardous?:</strong> <%= closestAsteroid.potentially_hazardous ? "Yes" : "No" %></li>
+        </ul>
+        <button class="button" onclick="openOrbitViewer('<%= closestAsteroid.name.replace(/[()]/g, '') %>')">
+            View Orbit
+        </button>
+    </div>
 
-    <h2>Closest Asteroid</h2>
-    <ul>
-        <li><strong>Name:</strong> <%= closestAsteroid.name %></li>
-        <li><strong>Approach Date:</strong> <%= closestAsteroid.approach_date %></li>
-        <li><strong>Miss Distance:</strong> <%= closestAsteroid.miss_distance_km %> km</li>
-        <li><strong>Estimated Diameter:</strong> <%= closestAsteroid.estimated_diameter_max %> km</li>
-        <li><strong>Potentially Hazardous:</strong> <%= closestAsteroid.potentially_hazardous %></li>
-    </ul>
-
+    <script>
+        function openOrbitViewer(asteroidName) {
+        const formattedName = asteroidName.replace(/ /g, '%20').replace(/[()]/g, '');
+        const orbitViewerUrl = `https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=${formattedName}&view=VOP`;
+        window.open(orbitViewerUrl, '_blank', 'noopener,noreferrer');
+    }
+    </script>
 </body>
 </html>

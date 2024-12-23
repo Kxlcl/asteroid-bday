@@ -3,20 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asteroids Home</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+  
+    <style>
+        body {
+            background-image: url("https://smd-cms.nasa.gov/wp-content/uploads/2023/04/m33.png");
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1A202C;
+        }
+
+        p, h1, h2 {
+            text-align: center;
+            font-family: "Tiny5", serif;
+        }
+
+        .dashboard-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(204, 209, 229, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 5px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            font-family: "Tiny5", serif;
+            width: 250px;
+            background-color: rgb(49, 49, 62);
+            padding: 10px;
+            margin: 15px 0;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+    </style>
+    <title>home</title>
 </head>
 <body>
-    <h1>Welcome to Your Asteroid Dashboard</h1>
-
-    <h2>Find Your Closest Asteroid</h2>
+    
+    <div class="dashboard-wrapper">
+    <h1>Welcome to Your Dashboard</h1>
+    <div class="item">
+    <h2>How close was an asteroid to Earth on your Birthday?</h2>
 
     <!-- Form to input birthday -->
     <form action="/find-asteroids" method="POST">
-        <input type="hidden" name="userId" value="<%= userId %>"> <!-- Pass the userId -->
-        <label for="birthday">Enter your Birthday:</label>
+        <input type="hidden" name="userId" value="<%= userId %>"> 
+        <label for="birthday">enter your birthday</label>
+        <br>
         <input type="date" id="birthday" name="birthday" required>
-        <button type="submit">Find Closest Asteroid</button>
+        <br>
+        <button class="button" type="submit">go!</button>
     </form>
-
+</div>
+<div class="item">
+    <h2>More to come soon...</h2>
+</div>
+</div>
 </body>
 </html>
