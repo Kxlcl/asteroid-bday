@@ -91,14 +91,15 @@
                 %>
                 <%= formattedMissDistance %>
             </li>
-            <li><strong>Estimated Diameter:</strong> <%= closestAsteroid.estimated_diameter_max.toFixed(2) %> km</li>
+            <li><strong>Had a Size of:</strong> <%= closestAsteroid.estimated_diameter_max.toFixed(2) %> km</li>
             <li><strong>Potentially Hazardous?:</strong> <%= closestAsteroid.potentially_hazardous ? "Yes" : "No" %></li>
         </ul>
         <button class="button" onclick="openOrbitViewer('<%= closestAsteroid.name.replace(/[()]/g, '') %>')">
-            View Orbit
+           View More
         </button>
     </div>
 
+    <!---Button linked to NASA db for more details-->
     <script>
         function openOrbitViewer(asteroidName) {
         const formattedName = asteroidName.replace(/ /g, '%20').replace(/[()]/g, '');
